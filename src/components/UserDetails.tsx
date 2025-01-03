@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { User } from '../types';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { User } from "../types";
 
 const UserDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -18,10 +18,11 @@ const UserDetails: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-4">
+      <h1 className="text-2xl font-bold text-center my-4">User Detail</h1>
       <div className="bg-white p-6 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold mb-4">{user.name}</h1>
-        <p className="text-gray-600 mb-4">Username: {user.username}</p>
-        <p className="text-gray-600 mb-4">Email: {user.email}</p>
+        <h1 className="text-3xl font-bold mb-2">{user.name}</h1>
+        <p className="text-gray-600 mb-2">Username: {user.username}</p>
+        <p className="text-gray-600 mb-2">Email: {user.email}</p>
         <div className="mb-4">
           <h2 className="text-2xl font-semibold">Address</h2>
           <p className="text-gray-600">{user.address.street}</p>
