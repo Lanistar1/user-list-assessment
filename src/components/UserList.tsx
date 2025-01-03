@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { User } from '../types';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { User } from "../types";
 
 const UserList: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
       .then((data: User[]) => setUsers(data));
   }, []);
@@ -20,11 +20,20 @@ const UserList: React.FC = () => {
             key={user.id}
             className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
-            <h2 className="text-xl font-semibold">{user.name}</h2>
-            <p className="text-gray-500 mb-4">{user.username}</p>
+            <div className="flex flex-row space-x-2">
+              <div className="flex h-[40px] w-[40px] bg-[#7676f6] rounded-full justify-center items-center font-bold text-white">
+                {user.name[0]}
+              </div>
+              <div>
+                <h2 className="text-[14px] font-semibold">{user.name}</h2>
+                {/* <p className="text-[12px] text-gray-500">{user.username}</p> */}
+                <p className="text-[12px] text-gray-500 mb-4">{user.email}</p>
+              </div>
+            </div>
+
             <Link
               to={`/user/${user.id}`}
-              className="text-blue-500 hover:underline"
+              className="text-blue-500 hover:underline "
             >
               View Details
             </Link>
